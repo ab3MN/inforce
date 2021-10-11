@@ -1,6 +1,6 @@
 const getDate = (): string => {
   const d = new Date();
-  let date = `${1 + d.getDate()}`;
+  let date = `${d.getDate()}`;
   let month = `${1 + d.getMonth()}`;
   const year = d.getFullYear();
   let hour = `${d.getHours()}`;
