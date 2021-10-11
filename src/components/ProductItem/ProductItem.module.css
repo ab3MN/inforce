@@ -1,0 +1,98 @@
+.product_container {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  width: 900px;
+}
+
+.product {
+  margin: 50px auto 0;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  width: 273px;
+  height: 500px;
+  background: #f8fafc;
+  border-radius: 25px;
+  margin-bottom: 20px;
+}
+
+.img {
+  width: 156px;
+  height: 161px;
+  display: block;
+  margin: 40px auto;
+  border-radius: 10%;
+}
+.name {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.info {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+.info_item {
+  display: block;
+  width: 100px;
+}
+
+/*Comments*/
+.comments_title {
+  text-align: center;
+  padding: 10px 0;
+}
+.comments_btn {
+  display: block;
+  margin: 0 auto;
+  width: 130px;
+  height: 30px;
+  background: #efbb37;
+  border-radius: 30px;
+  color: white;
+  border: none;
+  margin-bottom: 20px;
+}
+.comments_list {
+  margin-bottom: 20px;
+  width: 500px;
+}
+.comments_list_item {
+  margin: 5px;
+  border: 2px solid coral;
+  border-radius: 10px;
+}
+.comments {
+  padding: 10px;
+  word-wrap: break-word;
+  text-align: center;
+  line-height: 1.5em;
+  letter-spacing: 0.05em;
+  word-spacing: 0.2em;
+}
+.comments::first-letter {
+  text-transform: uppercase;
+}
+.delete_btn {
+  display: block;
+  margin: 0 auto;
+  width: 130px;
+  height: 30px;
+  background: #efbb37;
+  border-radius: 30px;
+  color: white;
+  border: none;
+  margin-bottom: 20px;
+}
+.form {
+  display: flex;
+  width: 273px;
+  margin: 0 auto;
+  flex-direction: column;
+}
+
+.area {
+  margin-bottom: 20px;
+}

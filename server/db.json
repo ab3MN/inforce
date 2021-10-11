@@ -1,0 +1,110 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "imageUrl": "https://image-skincare.ru/wa-data/public/shop/products/64/03/364/images/844/844.200@2x.jpg",
+      "name": "Vital A",
+      "count": 7,
+      "size": {
+        "width": 200,
+        "height": 200
+      },
+      "weight": 150,
+      "comments": [
+        {
+          "id": 13,
+          "productId": 1,
+          "description": "some text here",
+          "date": "14:00 22.08.2021"
+        },
+        {
+          "id": 12,
+          "productId": 1,
+          "description": "some text here",
+          "date": "14:00 23.08.2021"
+        },
+        {
+          "id": "MyakpYKGO",
+          "productId": "1",
+          "description": "SomeText SomeText SomeText SomeText SomeText SomeText SomeText SomeText SomeText SomeText SomeText SomeText",
+          "date": 1633953614505
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "imageUrl": "https://image-skincare.ru/wa-data/public/shop/products/64/03/364/images/844/844.200@2x.jpg",
+      "name": "Vital B",
+      "count": 4,
+      "size": {
+        "width": 200,
+        "height": 200
+      },
+      "weight": 300,
+      "comments": [
+        {
+          "id": 13,
+          "productId": 1,
+          "description": "some text here",
+          "date": "14:00 22.08.2021"
+        },
+        {
+          "id": 12,
+          "productId": 1,
+          "description": "some text here",
+          "date": "14:00 23.08.2021"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "imageUrl": "https://image-skincare.ru/wa-data/public/shop/products/64/03/364/images/844/844.200@2x.jpg",
+      "name": "Vital C",
+      "count": 9,
+      "size": {
+        "width": 200,
+        "height": 200
+      },
+      "weight": 150,
+      "comments": [
+        {
+          "id": 33,
+          "productId": 3,
+          "description": "some text here",
+          "date": "14:00 22.08.2021"
+        },
+        {
+          "id": 32,
+          "productId": 3,
+          "description": "some text here",
+          "date": "14:00 23.08.2021"
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "imageUrl": "https://image-skincare.ru/wa-data/public/shop/products/64/03/364/images/844/844.200@2x.jpg",
+      "name": "Vital D",
+      "count": 3,
+      "size": {
+        "width": 200,
+        "height": 200
+      },
+      "weight": 70,
+      "comments": [
+        {
+          "id": 43,
+          "productId": 4,
+          "description": "some text here",
+          "date": "14:00 22.08.2021"
+        },
+        {
+          "id": 42,
+          "productId": 4,
+          "description": "some text here",
+          "date": "14:00 23.08.2021"
+        }
+      ]
+    }
+  ]
+}

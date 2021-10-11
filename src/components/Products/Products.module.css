@@ -1,0 +1,16 @@
+.button {
+  display: block;
+  margin: 30px auto;
+  width: 200px;
+  height: 50px;
+  border-radius: 20px;
+  border: none;
+  background-color: #efbb37;
+  color: white;
+}
+.products {
+  margin-top: 20px;
+}
+.button:hover {
+  background: pink;
+}

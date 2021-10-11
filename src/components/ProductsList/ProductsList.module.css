@@ -1,0 +1,76 @@
+.list {
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.list_item {
+  width: 273px;
+  height: 407px;
+  background: #f8fafc;
+  border-radius: 25px;
+  margin-bottom: 20px;
+}
+.list_img {
+  width: 156px;
+  height: 161px;
+  display: block;
+  margin: 40px auto;
+  border-radius: 10%;
+}
+.item_name {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.item_info {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+.item_btn_delete {
+  display: block;
+  margin: 0 auto;
+  width: 100px;
+  height: 30px;
+  background: #efbb37;
+  border-radius: 30px;
+  color: white;
+  border: none;
+}
+
+.delete_box {
+  flex-direction: column;
+  width: 300px;
+}
+.delete_box_title {
+  margin-bottom: 10px;
+  text-align: center;
+}
+.delete_btn_box {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+.delete_box_yes {
+  display: block;
+  width: 60px;
+  height: 25px;
+  background: rgb(46, 142, 233);
+  color: white;
+  border-radius: 10px;
+  border: none;
+}
+.delete_box_cancel {
+  display: block;
+  width: 60px;
+  height: 25px;
+  border-radius: 10px;
+  background: rgb(231, 55, 55);
+  color: white;
+  border: none;
+}
+button:hover {
+  cursor: pointer;
+  background: pink;
+}
