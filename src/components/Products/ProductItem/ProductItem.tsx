@@ -1,10 +1,13 @@
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import style from './ProductItem.module.css';
+import { IProduct } from '../../../redux/products/productsType';
 
-const ProductItem: FC<any> = ({ product }) => {
-  const [modal, setModal] = useState<boolean>(false);
-  const openModal = (): void => setModal(true);
-  // const closeModal = (): void => setModal(false);
+interface IProductItemProp {
+  product: IProduct | any;
+  openModal: () => void;
+}
+
+const ProductItem: FC<IProductItemProp> = ({ product, openModal }) => {
   return (
     <article className={style.product}>
       <img src={product.imageUrl} alt={product?.name} className={style.img} />
@@ -25,13 +28,7 @@ const ProductItem: FC<any> = ({ product }) => {
           Height: <span>{product?.size?.height}</span>
         </p>
       </div>
-      <button
-        className={style.edit_btn}
-        onClick={() => {
-          openModal();
-        }}
-        type="button"
-      >
+      <button className={style.edit_btn} type="button" onClick={openModal}>
         Edit
       </button>
     </article>

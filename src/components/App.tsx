@@ -1,8 +1,8 @@
-import React, { Suspense } from 'react';
+import React, { FC, Suspense } from 'react';
 import { Redirect, Route, Switch } from 'react-router';
 import routes from '../Routes/Routes';
 
-const App = () => {
+const App: FC = () => {
   return (
     <Suspense fallback={<h1>Loading...</h1>}>
       <Switch>

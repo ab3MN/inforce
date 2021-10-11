@@ -131,6 +131,11 @@ export interface IProduct {
   name: string;
   count: number;
   weight: number;
+  size: {
+    width: number;
+    height: number;
+  };
+  comments: [];
 }
 export interface IFetchProductsStart {
   type: PRODUCTS_TYPES.FETCH_PRODUCTS_START;

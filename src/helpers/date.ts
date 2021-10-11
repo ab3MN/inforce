@@ -18,7 +18,7 @@ const getDate = (): string => {
   if (+minutes < 10) {
     minutes = '0' + minutes;
   }
-  return `${hour}:${minutes} ${+date}:${+month}:${year}`;
+  return `${hour}:${minutes} ${+date}.${+month}.${year}`;
 };
 
 export default getDate;

@@ -5,12 +5,13 @@ import Modal from '../../../UI/Modal/Modal';
 import style from './ProductComments.module.css';
 import { useDispatchAcions } from '../../../hooks/useDispatchAction';
 import getDate from '../../../helpers/date';
+import { IProduct } from '../../../redux/products/productsType';
 
-const ProductComments: FC<any> = ({ product }) => {
+const ProductComments: FC<IProduct | any> = ({ product }) => {
   const [modal, setModal] = useState<boolean>(false);
   const openModal = (): void => setModal(true);
   const closeModal = (): void => setModal(false);
-  const memoComments = useMemo(() => [...product.comments], []);
+  const memoComments = useMemo(() => [...product.comments], [product]);
 
   const [comment, setComment] = useState<string>('');
   const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {

@@ -3,7 +3,7 @@
   display: flex;
   justify-content: space-around;
   flex-direction: column;
-  width: 273px;
+  width: 275px;
   height: 500px;
   background: #f8fafc;
   border-radius: 25px;
@@ -11,8 +11,8 @@
 }
 
 .img {
-  width: 156px;
-  height: 161px;
+  width: 155px;
+  height: 160px;
   display: block;
   margin: 40px auto;
   border-radius: 10%;

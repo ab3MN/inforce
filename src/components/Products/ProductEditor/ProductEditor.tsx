@@ -2,6 +2,7 @@ import React, { useState, FC } from 'react';
 import shortid from 'shortid';
 import { useDispatchAcions } from '../../../hooks/useDispatchAction';
 import style from './ProductEditor.module.css';
+import { IProduct } from '../../../redux/products/productsType';
 
 interface IState {
   id: string;
@@ -10,22 +11,25 @@ interface IState {
   weight: number;
   width: number;
   height: number;
+  comments: [];
 }
 
 interface IPostEditorProp {
   onClose: () => void;
+  product?: any;
 }
 
-const ProductEditor: FC<IPostEditorProp> = ({ onClose }) => {
+const ProductEditor: FC<IPostEditorProp> = ({ onClose, product }) => {
   const [state, setState] = useState<IState>({
-    id: '',
-    name: '',
-    count: 0,
-    weight: 0,
-    width: 0,
-    height: 0,
+    id: product?.id || shortid.generate(),
+    name: product?.name || '',
+    count: product?.count || 0,
+    weight: product?.weight || 0,
+    width: product?.size?.width || 0,
+    height: product?.size?.height || 0,
+    comments: product?.comments || [],
   });
-  const { addproducts } = useDispatchAcions();
+  const { addproducts, editProduct } = useDispatchAcions();
 
   const handleChangeString = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const { name, value } = e.target;
@@ -46,7 +50,7 @@ const ProductEditor: FC<IPostEditorProp> = ({ onClose }) => {
   };
   const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    const { name, count, weight, width, height } = state;
+    const { id, name, count, weight, width, height, comments } = state;
     if (!name.trim() || !count || !weight || !width || !height) {
       alert('Please fill in all fields');
       return;
@@ -54,20 +58,25 @@ const ProductEditor: FC<IPostEditorProp> = ({ onClose }) => {
       alert(`count,weight,width,height can't be less than zero`);
       return;
     }
-    const product = {
-      id: shortid.generate(),
+    const productToAdd: IProduct = {
+      id: id,
       imageUrl:
         'https://image-skincare.ru/wa-data/public/shop/products/64/03/364/images/844/844.200@2x.jpg',
       name: name.trim(),
-      count: count,
-      weight: weight,
+      count,
+      weight,
       size: {
-        width: width,
-        height: height,
+        width,
+        height,
       },
-      comments: [],
+      comments: comments,
     };
-    addproducts(product);
+    if (!product) {
+      addproducts(productToAdd);
+    } else {
+      editProduct(id, productToAdd);
+    }
+
     onClose();
     reset();
   };
@@ -131,7 +140,7 @@ const ProductEditor: FC<IPostEditorProp> = ({ onClose }) => {
           pattern="[0-9]*"
         />
         <button type="submit" className={style.button}>
-          Add product
+          {!product ? 'Add product' : 'Edit'}
         </button>
       </form>
     </div>

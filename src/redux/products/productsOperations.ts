@@ -7,12 +7,13 @@ import {
   FetchOneProductActions,
   PRODUCTS_TYPES,
   EditProductActions,
+  IProduct,
 } from './productsType';
 
 axios.defaults.baseURL = 'http://localhost:4040';
 
 /*Edit product*/
-export const editProduct = (id: string, product: any) => {
+export const editProduct = (id: string, product: IProduct) => {
   return async (d: Dispatch<EditProductActions>) => {
     try {
       d({
@@ -56,7 +57,7 @@ export const fetchOneProduct = (id: string) => {
 };
 
 /*add products*/
-export const addproducts = (product: any) => {
+export const addproducts = (product: IProduct) => {
   return async (d: Dispatch<AddProductActions>) => {
     try {
       d({

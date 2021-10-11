@@ -36,11 +36,11 @@
       "imageUrl": "https://image-skincare.ru/wa-data/public/shop/products/64/03/364/images/844/844.200@2x.jpg",
       "name": "Vital B",
       "count": 4,
+      "weight": 300,
       "size": {
         "width": 200,
         "height": 200
       },
-      "weight": 300,
       "comments": [
         {
           "id": 13,
@@ -88,51 +88,14 @@
       ]
     },
     {
-      "id": "4",
+      "id": "nuq05Kg_O-",
       "imageUrl": "https://image-skincare.ru/wa-data/public/shop/products/64/03/364/images/844/844.200@2x.jpg",
-      "name": "Vital D",
-      "count": 3,
+      "name": "Product1",
+      "count": "124",
+      "weight": "341",
       "size": {
-        "width": 200,
-        "height": 200
-      },
-      "weight": 70,
-      "comments": [
-        {
-          "id": 43,
-          "productId": 4,
-          "description": "some text here",
-          "date": "14:00 22.08.2021"
-        },
-        {
-          "id": 42,
-          "productId": 4,
-          "description": "some text here",
-          "date": "14:00 23.08.2021"
-        }
-      ]
-    },
-    {
-      "id": "TY9qgUt3e",
-      "imageUrl": "https://image-skincare.ru/wa-data/public/shop/products/64/03/364/images/844/844.200@2x.jpg",
-      "name": "FDSWAGDS",
-      "count": 2,
-      "weight": 2,
-      "size": {
-        "width": 2,
-        "height": 2
-      },
-      "comments": []
-    },
-    {
-      "id": "gWlb2hN8B",
-      "imageUrl": "https://image-skincare.ru/wa-data/public/shop/products/64/03/364/images/844/844.200@2x.jpg",
-      "name": "412412541",
-      "count": 2412,
-      "weight": 41241,
-      "size": {
-        "width": 412241,
-        "height": 4141
+        "width": "4141",
+        "height": "4141"
       },
       "comments": []
     }
