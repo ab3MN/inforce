@@ -6,10 +6,10 @@ import style from './ProductEditor.module.css';
 interface IState {
   id: string;
   name: string;
-  count: number | string;
-  weight: number | string;
-  width: number | string;
-  height: number | string;
+  count: number;
+  weight: number;
+  width: number;
+  height: number;
 }
 
 interface IPostEditorProp {
@@ -20,40 +20,50 @@ const ProductEditor: FC<IPostEditorProp> = ({ onClose }) => {
   const [state, setState] = useState<IState>({
     id: '',
     name: '',
-    count: '',
-    weight: '',
-    width: '',
-    height: '',
+    count: 0,
+    weight: 0,
+    width: 0,
+    height: 0,
   });
   const { addproducts } = useDispatchAcions();
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+  const handleChangeString = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const { name, value } = e.target;
     setState(s => ({
       ...s,
       [name]: value,
     }));
   };
+
+  const handleChangeNuber = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    const re = /^[0-9\b]+$/;
+    const { name, value } = e.target;
+    if (value === '' || re.test(value))
+      setState(s => ({
+        ...s,
+        [name]: value,
+      }));
+  };
   const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>): void => {
     e.preventDefault();
     const { name, count, weight, width, height } = state;
-    if (!name || !count || !weight || !width || !height) {
+    if (!name.trim() || !count || !weight || !width || !height) {
       alert('Please fill in all fields');
       return;
-    } else if (+count <= 0 || +weight <= 0 || +width <= 0 || +height <= 0) {
-      alert(`count,weight,width,height can't be <= 0`);
+    } else if (count <= 0 || weight <= 0 || width <= 0 || height <= 0) {
+      alert(`count,weight,width,height can't be less than zero`);
       return;
     }
     const product = {
       id: shortid.generate(),
       imageUrl:
         'https://image-skincare.ru/wa-data/public/shop/products/64/03/364/images/844/844.200@2x.jpg',
-      name,
-      count: +count,
-      weight: +weight,
+      name: name.trim(),
+      count: count,
+      weight: weight,
       size: {
-        width: +width,
-        height: +height,
+        width: width,
+        height: height,
       },
       comments: [],
     };
@@ -66,10 +76,10 @@ const ProductEditor: FC<IPostEditorProp> = ({ onClose }) => {
     setState(s => ({
       ...s,
       name: '',
-      count: '',
-      weight: '',
-      width: '',
-      height: '',
+      count: 0,
+      weight: 0,
+      width: 0,
+      height: 0,
     }));
   };
 
@@ -80,7 +90,7 @@ const ProductEditor: FC<IPostEditorProp> = ({ onClose }) => {
           type="text"
           name="name"
           value={state.name}
-          onChange={handleChange}
+          onChange={handleChangeString}
           className={style.input}
           placeholder="Enter name"
         />
@@ -88,33 +98,37 @@ const ProductEditor: FC<IPostEditorProp> = ({ onClose }) => {
           type="text"
           name="count"
           value={state.count}
-          onChange={handleChange}
+          onChange={handleChangeNuber}
           className={style.input}
           placeholder="Enter count"
+          pattern="[0-9]*"
         />
         <input
           type="text"
           name="weight"
           value={state.weight}
-          onChange={handleChange}
+          onChange={handleChangeNuber}
           className={style.input}
           placeholder="Enter weight"
+          pattern="[0-9]*"
         />
         <input
           type="text"
           name="width"
           value={state.width}
-          onChange={handleChange}
+          onChange={handleChangeNuber}
           className={style.input}
           placeholder="Enter width"
+          pattern="[0-9]*"
         />
         <input
           type="text"
           name="height"
           value={state.height}
-          onChange={handleChange}
+          onChange={handleChangeNuber}
           className={style.input}
           placeholder="Enter height"
+          pattern="[0-9]*"
         />
         <button type="submit" className={style.button}>
           Add product
