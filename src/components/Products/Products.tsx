@@ -3,8 +3,8 @@ import Select from 'react-select';
 import { useDispatchAcions } from '../../hooks/useDispatchAction';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import Modal from '../../UI/Modal/Modal';
-import ProductEditor from '../ProductEditor/ProductEditor';
-import ProductsList from '../ProductsList/ProductsList';
+import ProductEditor from './ProductEditor/ProductEditor';
+import ProductsList from './ProductsList/ProductsList';
 import style from './Products.module.css';
 
 const options = [

@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import { IEditProductSuccess } from './productsType';
 import {
   IDeleteProductError,
   IProduct,
@@ -28,6 +29,13 @@ const productsReducer = (
 
     case PRODUCTS_TYPES.ADD_PRODUCTS_SUCCESS:
       return [...state, payload.product];
+
+    case PRODUCTS_TYPES.EDIT_PRODUCT_SUCCESS:
+      return state.map(el =>
+        el.id === payload.product.id
+          ? Object.assign({}, el, payload.product)
+          : el,
+      );
     default:
       return state;
   }
@@ -56,10 +64,13 @@ const errorReducer = (
 };
 const productReducer = (
   state = {},
-  { type, payload }: IFetchOneProductSuccess,
+  { type, payload }: IFetchOneProductSuccess | IEditProductSuccess,
 ) => {
   switch (type) {
     case PRODUCTS_TYPES.FETCH_ONE_PRODUCT_SUCCESS:
+      return payload.product || state;
+
+    case PRODUCTS_TYPES.EDIT_PRODUCT_SUCCESS:
       return payload.product || state;
     default:
       return state;

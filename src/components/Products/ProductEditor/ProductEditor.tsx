@@ -1,6 +1,6 @@
 import React, { useState, FC } from 'react';
 import shortid from 'shortid';
-import { useDispatchAcions } from '../../hooks/useDispatchAction';
+import { useDispatchAcions } from '../../../hooks/useDispatchAction';
 import style from './ProductEditor.module.css';
 
 interface IState {

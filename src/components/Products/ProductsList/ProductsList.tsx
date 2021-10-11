@@ -1,11 +1,11 @@
 import React, { FC, useState } from 'react';
 import { Link } from 'react-router-dom';
-import routes from '../../Routes/Routes';
+import routes from '../../../Routes/Routes';
 
-import { IProducts } from '../../redux/products/productsType';
-import Modal from '../../UI/Modal/Modal';
+import { IProducts } from '../../../redux/products/productsType';
+import Modal from '../../../UI/Modal/Modal';
 import style from './ProductsList.module.css';
-import { useDispatchAcions } from '../../hooks/useDispatchAction';
+import { useDispatchAcions } from '../../../hooks/useDispatchAction';
 
 const ProductsList: FC<IProducts> = ({ products }) => {
   const [modal, setModal] = useState<boolean>(false);
