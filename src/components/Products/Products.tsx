@@ -15,13 +15,14 @@ const options = [
 const Products: FC = () => {
   /*Fetch products*/
   const { fetchProducts } = useDispatchAcions();
+  const { products } = useTypedSelector(state => state.products);
+
   useEffect(() => {
     fetchProducts();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const { products } = useTypedSelector(state => state.products);
-  const [selectedType, setSelectedType] = useState<string>('count');
+  const [selectedType, setSelectedType] = useState<string>('');
   const changeSelectedTypeHandler = (e: string) => {
     setSelectedType(e);
   };
@@ -43,7 +44,7 @@ const Products: FC = () => {
     <main className={style.products}>
       <Select
         options={options}
-        defaultValue={options[0]}
+        defaultValue={{ value: '', label: '' }}
         onChange={(e: any) => changeSelectedTypeHandler(e?.value)}
       />
       {memoPproducts.length > 0 && <MemoProductList products={memoPproducts} />}

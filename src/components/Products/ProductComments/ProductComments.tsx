@@ -1,4 +1,4 @@
-import React, { FC, useMemo, useState } from 'react';
+import React, { FC, useState } from 'react';
 import shortid from 'shortid';
 
 import Modal from '../../../UI/Modal/Modal';
@@ -11,7 +11,6 @@ const ProductComments: FC<IProduct | any> = ({ product }) => {
   const [modal, setModal] = useState<boolean>(false);
   const openModal = (): void => setModal(true);
   const closeModal = (): void => setModal(false);
-  const memoComments = useMemo(() => [...product.comments], [product]);
 
   const [comment, setComment] = useState<string>('');
   const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -20,6 +19,7 @@ const ProductComments: FC<IProduct | any> = ({ product }) => {
   const { editProduct } = useDispatchAcions();
   const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
+
     if (comment.trim().length < 30) {
       alert(`Min comment's length 30 symbol`);
       return;
@@ -52,9 +52,9 @@ const ProductComments: FC<IProduct | any> = ({ product }) => {
   return (
     <article>
       <h2 className={style.comments_title}>Comments:</h2>
-      {memoComments.length > 0 && (
+      {product?.comments?.length > 0 ? (
         <ul className={style.comments_list}>
-          {memoComments.map((el: any) => (
+          {product?.comments?.map((el: any) => (
             <li key={el.id} className={style.comments_list_item}>
               <p className={style.comments}> {el.description}</p>
               <button
@@ -67,6 +67,8 @@ const ProductComments: FC<IProduct | any> = ({ product }) => {
             </li>
           ))}
         </ul>
+      ) : (
+        <h4 className={style.no_comments}>No comments</h4>
       )}
       <button type="button" className={style.comments_btn} onClick={openModal}>
         Add Comments

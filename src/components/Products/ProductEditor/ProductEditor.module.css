@@ -13,6 +13,22 @@
   text-indent: 20px;
   font-size: 20px;
 }
+.input_file {
+  display: none;
+}
+.file {
+  width: 200px;
+  height: 40px;
+  background-color: #00eeff;
+  border-radius: 10px;
+  color: white;
+  margin-bottom: 20px;
+  text-align: center;
+  padding-top: 10px;
+}
+.file:hover {
+  background-color: pink;
+}
 .button {
   width: 200px;
   height: 40px;

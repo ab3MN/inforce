@@ -34,6 +34,10 @@
 .comments::first-letter {
   text-transform: uppercase;
 }
+.no_comments {
+  text-align: center;
+  padding-bottom: 20px;
+}
 .delete_btn {
   display: block;
   margin: 0 auto;

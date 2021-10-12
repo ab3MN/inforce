@@ -9,25 +9,19 @@
         "width": 200,
         "height": 200
       },
-      "weight": 150,
+      "weight": 250,
       "comments": [
         {
-          "id": 13,
+          "id": 12,
           "productId": 1,
           "description": "some text here",
           "date": "14:00 22.08.2021"
         },
         {
-          "id": 12,
+          "id": 13,
           "productId": 1,
           "description": "some text here",
           "date": "14:00 23.08.2021"
-        },
-        {
-          "id": "MyakpYKGO",
-          "productId": "1",
-          "description": "SomeText SomeText SomeText SomeText SomeText SomeText SomeText SomeText SomeText SomeText SomeText SomeText",
-          "date": 1633953614505
         }
       ]
     },
@@ -36,29 +30,23 @@
       "imageUrl": "https://image-skincare.ru/wa-data/public/shop/products/64/03/364/images/844/844.200@2x.jpg",
       "name": "Vital B",
       "count": 4,
-      "weight": 300,
+      "weight": 170,
       "size": {
         "width": 200,
         "height": 200
       },
       "comments": [
         {
-          "id": 13,
+          "id": 22,
           "productId": 1,
           "description": "some text here",
           "date": "14:00 22.08.2021"
         },
         {
-          "id": 12,
+          "id": 23,
           "productId": 1,
           "description": "some text here",
-          "date": "14:00 23.08.2021"
-        },
-        {
-          "id": "zUjBwmAaM",
-          "productId": "2",
-          "description": "comments_title comments_title comments_title comments_titlecomments_title comments_titlecomments_title comments_titlecomments_title comments_titlecomments_title comments_titlecomments_title comments_titlecomments_title comments_titlecomments_title comments_titlecomments_title comments_titlecomments_title comments_title",
-          "date": "21:08 12:10:2021"
+          "date": "14:00 22.08.2021"
         }
       ]
     },
@@ -66,7 +54,7 @@
       "id": "3",
       "imageUrl": "https://image-skincare.ru/wa-data/public/shop/products/64/03/364/images/844/844.200@2x.jpg",
       "name": "Vital C",
-      "count": 9,
+      "count": 19,
       "size": {
         "width": 200,
         "height": 200
@@ -74,13 +62,13 @@
       "weight": 150,
       "comments": [
         {
-          "id": 33,
+          "id": 32,
           "productId": 3,
           "description": "some text here",
           "date": "14:00 22.08.2021"
         },
         {
-          "id": 32,
+          "id": 33,
           "productId": 3,
           "description": "some text here",
           "date": "14:00 23.08.2021"
@@ -88,16 +76,29 @@
       ]
     },
     {
-      "id": "nuq05Kg_O-",
+      "id": "4",
       "imageUrl": "https://image-skincare.ru/wa-data/public/shop/products/64/03/364/images/844/844.200@2x.jpg",
-      "name": "Product1",
-      "count": "124",
-      "weight": "341",
+      "name": "Vital D",
+      "count": 17,
       "size": {
-        "width": "4141",
-        "height": "4141"
+        "width": 200,
+        "height": 200
       },
-      "comments": []
+      "weight": 15,
+      "comments": [
+        {
+          "id": 42,
+          "productId": 3,
+          "description": "some text here",
+          "date": "14:00 22.08.2021"
+        },
+        {
+          "id": "dMhG6jHlV",
+          "productId": "4",
+          "description": "some text here  some text here  some text here  some text here some text here  some text here some text here  some text here some text here  some text here some text here  some text here",
+          "date": "03:55 12.10.2021"
+        }
+      ]
     }
   ]
 }

@@ -12,6 +12,7 @@ interface IState {
   width: number;
   height: number;
   comments: [];
+  img: any;
 }
 
 interface IPostEditorProp {
@@ -28,6 +29,7 @@ const ProductEditor: FC<IPostEditorProp> = ({ onClose, product }) => {
     width: product?.size?.width || 0,
     height: product?.size?.height || 0,
     comments: product?.comments || [],
+    img: '',
   });
   const { addproducts, editProduct } = useDispatchAcions();
 
@@ -48,9 +50,20 @@ const ProductEditor: FC<IPostEditorProp> = ({ onClose, product }) => {
         [name]: value,
       }));
   };
+  const handleChangeImg = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    const { files, name } = e.target;
+    if (files && files[0]) {
+      let img = files[0];
+      setState(s => ({
+        ...s,
+        [name]: URL.createObjectURL(img),
+      }));
+    }
+  };
+
   const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    const { id, name, count, weight, width, height, comments } = state;
+    const { id, name, count, weight, width, height, comments, img } = state;
     if (!name.trim() || !count || !weight || !width || !height) {
       alert('Please fill in all fields');
       return;
@@ -60,8 +73,7 @@ const ProductEditor: FC<IPostEditorProp> = ({ onClose, product }) => {
     }
     const productToAdd: IProduct = {
       id: id,
-      imageUrl:
-        'https://image-skincare.ru/wa-data/public/shop/products/64/03/364/images/844/844.200@2x.jpg',
+      imageUrl: img,
       name: name.trim(),
       count,
       weight,
@@ -103,6 +115,7 @@ const ProductEditor: FC<IPostEditorProp> = ({ onClose, product }) => {
           className={style.input}
           placeholder="Enter name"
         />
+
         <input
           type="text"
           name="count"
@@ -139,6 +152,17 @@ const ProductEditor: FC<IPostEditorProp> = ({ onClose, product }) => {
           placeholder="Enter height"
           pattern="[0-9]*"
         />
+        <label htmlFor="img" className={style.file}>
+          Download Image
+          <input
+            id="img"
+            type="file"
+            name="img"
+            onChange={handleChangeImg}
+            placeholder="Enter name"
+            className={style.input_file}
+          />
+        </label>
         <button type="submit" className={style.button}>
           {!product ? 'Add product' : 'Edit'}
         </button>

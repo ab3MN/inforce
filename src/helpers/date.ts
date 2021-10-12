@@ -1,23 +1,15 @@
 const getDate = (): string => {
+  const fixedDate = (x: string) => {
+    const y: string = '0' + x;
+    return +x < 10 ? y : x;
+  };
   const d = new Date();
-  let date = `${d.getDate()}`;
-  let month = `${1 + d.getMonth()}`;
+  let date = fixedDate(`${d.getDate()}`);
+  let month = fixedDate(`${1 + d.getMonth()}`);
   const year = d.getFullYear();
-  let hour = `${d.getHours()}`;
-  let minutes = `${d.getMinutes()}`;
+  let hour = fixedDate(`${d.getHours()}`);
+  let minutes = fixedDate(`${d.getMinutes()}`);
 
-  if (+date < 10) {
-    date = '0' + date;
-  }
-  if (+month < 10) {
-    month = '0' + month;
-  }
-  if (+hour < 10) {
-    hour = '0' + hour;
-  }
-  if (+minutes < 10) {
-    minutes = '0' + minutes;
-  }
   return `${hour}:${minutes} ${+date}.${+month}.${year}`;
 };
 
