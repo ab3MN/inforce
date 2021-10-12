@@ -16,7 +16,15 @@ const ProductComments: FC<IProduct | any> = ({ product }) => {
   const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setComment(e.target.value);
   };
+
   const { editProduct } = useDispatchAcions();
+  const getMemoId = React.useCallback<any>(() => {
+    return shortid.generate();
+  }, []);
+  const getMemoDate = React.useCallback<any>(() => {
+    return getDate();
+  }, []);
+
   const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -25,10 +33,10 @@ const ProductComments: FC<IProduct | any> = ({ product }) => {
       return;
     }
     const commentsToAdd = {
-      id: shortid.generate(),
+      id: getMemoId(),
       productId: product.id,
       description: comment.trim(),
-      date: getDate(),
+      date: getMemoDate(),
     };
     const productToAdd = {
       ...product,
@@ -42,7 +50,9 @@ const ProductComments: FC<IProduct | any> = ({ product }) => {
 
   /*Delete Comment*/
   const onDelete = (id: string) => {
-    const commentsToAdd = product.comments.filter((el: any) => el.id !== id);
+    const commentsToAdd = product.comments.filter(
+      (el: IProduct) => el.id !== id,
+    );
     const productToAdd = {
       ...product,
       comments: [...commentsToAdd],
@@ -70,7 +80,11 @@ const ProductComments: FC<IProduct | any> = ({ product }) => {
       ) : (
         <h4 className={style.no_comments}>No comments</h4>
       )}
-      <button type="button" className={style.comments_btn} onClick={openModal}>
+      <button
+        type="button"
+        className={style.add_comments_btn}
+        onClick={openModal}
+      >
         Add Comments
       </button>
       {modal && (
@@ -84,9 +98,18 @@ const ProductComments: FC<IProduct | any> = ({ product }) => {
               className={style.area}
               onChange={onChange}
             />
-            <button type="submit" className={style.comments_btn}>
-              Add Comments
-            </button>
+            <div className={style.btn_box}>
+              <button type="submit" className={style.add_btn}>
+                Add Comments
+              </button>
+              <button
+                type="button"
+                className={style.cancel_btn}
+                onClick={closeModal}
+              >
+                Cancel
+              </button>
+            </div>
           </form>
         </Modal>
       )}

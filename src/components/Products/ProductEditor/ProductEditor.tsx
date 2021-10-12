@@ -7,12 +7,12 @@ import { IProduct } from '../../../redux/products/productsType';
 interface IState {
   id: string;
   name: string;
-  count: number;
-  weight: number;
-  width: number;
-  height: number;
+  count: string;
+  weight: string;
+  width: string;
+  height: string;
   comments: [];
-  img: any;
+  imageUrl: string;
 }
 
 interface IPostEditorProp {
@@ -21,15 +21,19 @@ interface IPostEditorProp {
 }
 
 const ProductEditor: FC<IPostEditorProp> = ({ onClose, product }) => {
+  const getId = React.useCallback<any>(() => {
+    return shortid.generate();
+  }, []);
+
   const [state, setState] = useState<IState>({
-    id: product?.id || shortid.generate(),
+    id: product?.id || getId(),
     name: product?.name || '',
-    count: product?.count || 0,
-    weight: product?.weight || 0,
-    width: product?.size?.width || 0,
-    height: product?.size?.height || 0,
+    count: product?.count || '',
+    weight: product?.weight || '',
+    width: product?.size?.width || '',
+    height: product?.size?.height || '',
     comments: product?.comments || [],
-    img: '',
+    imageUrl: '',
   });
   const { addproducts, editProduct } = useDispatchAcions();
 
@@ -63,25 +67,26 @@ const ProductEditor: FC<IPostEditorProp> = ({ onClose, product }) => {
 
   const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    const { id, name, count, weight, width, height, comments, img } = state;
+    const { id, name, count, weight, width, height, comments, imageUrl } =
+      state;
     if (!name.trim() || !count || !weight || !width || !height) {
       alert('Please fill in all fields');
       return;
-    } else if (count <= 0 || weight <= 0 || width <= 0 || height <= 0) {
+    } else if (+count <= 0 || +weight <= 0 || +width <= 0 || +height <= 0) {
       alert(`count,weight,width,height can't be less than zero`);
       return;
     }
     const productToAdd: IProduct = {
-      id: id,
-      imageUrl: img,
+      id,
+      imageUrl,
       name: name.trim(),
-      count,
-      weight,
+      count: +count,
+      weight: +weight,
       size: {
-        width,
-        height,
+        width: +width,
+        height: +width,
       },
-      comments: comments,
+      comments,
     };
     if (!product) {
       addproducts(productToAdd);
@@ -97,15 +102,15 @@ const ProductEditor: FC<IPostEditorProp> = ({ onClose, product }) => {
     setState(s => ({
       ...s,
       name: '',
-      count: 0,
-      weight: 0,
-      width: 0,
-      height: 0,
+      count: '',
+      weight: '',
+      width: '',
+      height: '',
     }));
   };
 
   return (
-    <div className={style.editor_box}>
+    <section className={style.editor_container}>
       <form onSubmit={handleSubmit} className={style.form}>
         <input
           type="text"
@@ -157,17 +162,21 @@ const ProductEditor: FC<IPostEditorProp> = ({ onClose, product }) => {
           <input
             id="img"
             type="file"
-            name="img"
+            name="imageUrl"
             onChange={handleChangeImg}
-            placeholder="Enter name"
             className={style.input_file}
           />
         </label>
-        <button type="submit" className={style.button}>
-          {!product ? 'Add product' : 'Edit'}
-        </button>
+        <div className={style.btn_box}>
+          <button type="submit" className={style.submit_btn}>
+            {!product ? 'Add product' : 'Edit'}
+          </button>
+          <button type="button" className={style.cancel_btn} onClick={onClose}>
+            Cancel
+          </button>
+        </div>
       </form>
-    </div>
+    </section>
   );
 };
 

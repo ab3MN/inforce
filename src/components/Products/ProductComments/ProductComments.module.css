@@ -3,17 +3,7 @@
   text-align: center;
   padding: 45px 0 10px;
 }
-.comments_btn {
-  display: block;
-  margin: 0 auto;
-  width: 130px;
-  height: 30px;
-  background: #efbb37;
-  border-radius: 30px;
-  color: white;
-  border: none;
-  margin-bottom: 20px;
-}
+
 .comments_list {
   margin-bottom: 20px;
   width: 500px;
@@ -38,20 +28,10 @@
   text-align: center;
   padding-bottom: 20px;
 }
-.delete_btn {
-  display: block;
-  margin: 0 auto;
-  width: 130px;
-  height: 30px;
-  background: #efbb37;
-  border-radius: 30px;
-  color: white;
-  border: none;
-  margin-bottom: 20px;
-}
+/*Form*/
 .form {
   display: flex;
-  width: 273px;
+  width: 300px;
   margin: 0 auto;
   flex-direction: column;
 }
@@ -59,6 +39,45 @@
 .area {
   margin-bottom: 20px;
 }
+.btn_box {
+  display: flex;
+  margin: 0 auto;
+  width: 300px;
+  justify-content: space-between;
+}
+.cancel_btn,
+.add_btn,
+.delete_btn {
+  width: 130px;
+  display: block;
+  height: 30px;
+  border-radius: 30px;
+  color: white;
+  border: none;
+}
+.add_btn {
+  background: #efbb37;
+}
+.add_comments_btn {
+  width: 130px;
+  height: 30px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 30px;
+  color: white;
+  border: none;
+  background: #efbb37;
+}
+
+.cancel_btn {
+  background-color: rgb(231, 55, 55);
+}
+
+.delete_btn {
+  margin: 0 auto 20px;
+  background: #efbb37;
+}
+
 button:hover {
   background-color: pink;
 }
